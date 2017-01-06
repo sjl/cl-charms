@@ -17,3 +17,7 @@
 (defun curses-version ()
   "Return a string representing the version of the underlying curses implementation."
   (charms/ll:curses-version))
+
+(defun update ()
+  (check-status (charms/ll:doupdate))
+  t)

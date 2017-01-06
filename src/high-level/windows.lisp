@@ -72,6 +72,11 @@ Note that windows may not overlap."
   (check-status (charms/ll:clearok (window-pointer window) charms/ll:TRUE))
   t)
 
+(defun move-window (window x y)
+  "Move the window WINDOW to the coordinates (X, Y)."
+  (check-status (charms/ll:mvwin (window-pointer window) y x))
+  t)
+
 (defun clear-window (window &key force-repaint)
   "Blank out the contents of the window WINDOW. If FORCE-REPAINT is T, then the window will be repainted entirely in the next refresh. (Using this option can be more optimally performant than calling `CHARMS:FORCE-REPAINT' manually.)"
   (if force-repaint
