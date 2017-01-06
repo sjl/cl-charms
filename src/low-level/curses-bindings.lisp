@@ -1774,3 +1774,53 @@ see printw for examples."
   (win window-ptr)
   (lines :int)
   (columns :int))
+
+
+;; panels
+#+sb-unicode
+(cffi:define-foreign-library libpanel
+  (:darwin "libpanel.dylib")
+  (t (:default "libpanel")))
+
+#-sb-unicode
+(cffi:define-foreign-library libpanel
+  (:darwin "libpanel.dylib")
+  (t (:default "libpanel")))
+
+(cffi:use-foreign-library libpanel)
+
+(cffi:defctype panel-ptr :pointer)
+
+(define-exported-cfuns ("panel_window")
+    window-ptr
+  (panel panel-ptr))
+
+(define-exported-cfuns ("update_panels")
+    :void)
+
+(define-exported-cfuns ("hide_panel" "show_panel" "del_panel" "top_panel" "bottom_panel")
+    :int
+  (panel panel-ptr))
+
+(define-exported-cfuns ("new_panel")
+    panel-ptr
+  (window window-ptr))
+
+(define-exported-cfuns ("panel_above" "panel_below")
+    panel-ptr
+  (panel panel-ptr))
+
+; extern NCURSES_EXPORT(int)     set_panel_userptr (PANEL *, NCURSES_CONST void *);
+; extern NCURSES_EXPORT(NCURSES_CONST void*) panel_userptr (const PANEL *);
+
+(define-exported-cfuns ("move_panel")
+    :int
+  (panel panel-ptr)
+  (y :int)
+  (x :int))
+
+; extern NCURSES_EXPORT(int)     replace_panel (PANEL *,WINDOW *);
+; extern NCURSES_EXPORT(int)     panel_hidden (const PANEL *);
+; extern NCURSES_EXPORT(PANEL *) ground_panel(SCREEN *);
+; extern NCURSES_EXPORT(PANEL *) ceiling_panel(SCREEN *);
+; extern NCURSES_EXPORT(void)    NCURSES_SP_NAME(update_panels) (SCREEN*);

@@ -53,6 +53,7 @@
                 :components ((:file "package")
                              (:file "utilities")
                              (:file "windows")
+                             (:file "panels")
                              (:file "cursor")
                              (:file "output")
                              (:file "input")
