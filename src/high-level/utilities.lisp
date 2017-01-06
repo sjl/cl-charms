@@ -28,7 +28,13 @@
 (defun c-char-to-character (c-char)
   "Convert a C character to a Lisp character."
   ;; FIXME: This isn't quite right.
-  (code-char c-char))
+  (case c-char
+    (#.charms/ll:KEY_LEFT :left)
+    (#.charms/ll:KEY_RIGHT :right)
+    (#.charms/ll:KEY_UP :up)
+    (#.charms/ll:KEY_DOWN :down)
+    (#.charms/ll:KEY_MOUSE :mouse)
+    (t (code-char c-char))))
 
 (defmacro check-status (form)
   "Check the status of the resulting value VALUE to see if it is an error. If so, signal an error. If not, return the value."
