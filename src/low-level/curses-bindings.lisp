@@ -1780,11 +1780,15 @@ see printw for examples."
 #+sb-unicode
 (cffi:define-foreign-library libpanel
   (:darwin "libpanel.dylib")
+  (:unix (:or "libpanelw.so"
+              "libpanel.so"))
   (t (:default "libpanel")))
 
 #-sb-unicode
 (cffi:define-foreign-library libpanel
   (:darwin "libpanel.dylib")
+  (:unix (:or "libpanelw.so"
+              "libpanel.so"))
   (t (:default "libpanel")))
 
 (cffi:use-foreign-library libpanel)
