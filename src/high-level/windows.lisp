@@ -80,6 +80,12 @@ Note that windows may not overlap."
   (check-status (charms/ll:mvwin (window-pointer window) y x))
   t)
 
+
+(defun resize-window (window width height)
+  (check-status (charms/ll:wresize (window-pointer window) height width))
+  t)
+
+
 (defun clear-window (window &key force-repaint)
   "Blank out the contents of the window WINDOW. If FORCE-REPAINT is T, then the window will be repainted entirely in the next refresh. (Using this option can be more optimally performant than calling `CHARMS:FORCE-REPAINT' manually.)"
   (let ((window (resolve-window window)))

@@ -37,6 +37,7 @@
    #:window-dimensions                  ; FUNCTION
    #:refresh-window                     ; FUNCTION
    #:move-window                        ; FUNCTION
+   #:resize-window                      ; FUNCTION
    #:force-repaint                      ; FUNCTION
    #:clear-window                       ; FUNCTION
    #:clear-window-after-cursor          ; FUNCTION
@@ -106,5 +107,7 @@
    #:move-panel-to-bottom               ; FUNCTION
    #:move-panel                         ; FUNCTION
    #:update-panels                      ; FUNCTION
+   #:replace-panel-window               ; FUNCTION
+
    )
   )

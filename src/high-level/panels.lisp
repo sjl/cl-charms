@@ -58,6 +58,16 @@
   (charms/ll:update-panels)
   t)
 
+(defun replace-panel-window (panel new-window)
+  "Replaces the window of PANEL with the given WINDOW.
+
+  The old window is not destroyed.
+
+  "
+  (check-status (charms/ll:replace-panel (panel-pointer panel)
+                                         (window-pointer new-window)))
+  t)
+
 
 ;; todo: panel-above and panel-below... it would be nice to get the actual CLOS
 ;; objects instead of just the pointers, so we'd need to maintain a hash table
