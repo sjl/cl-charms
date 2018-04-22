@@ -36,6 +36,7 @@
    #:copy-window                        ; FUNCTION
    #:window-dimensions                  ; FUNCTION
    #:refresh-window                     ; FUNCTION
+   #:move-window                        ; FUNCTION
    #:force-repaint                      ; FUNCTION
    #:clear-window                       ; FUNCTION
    #:clear-window-after-cursor          ; FUNCTION
@@ -90,5 +91,20 @@
    #:beep-console                       ; FUNCTION
    #:flash-console                      ; FUNCTION
    #:curses-version                     ; FUNCTION
+   #:update                             ; FUNCTION
+   )
+  
+  ;; panels.lisp
+  (:export
+   #:panel                              ; CLASS
+   #:panel-window                       ; FUNCTION
+   #:make-panel                         ; FUNCTION
+   #:destroy-panel                      ; FUNCTION
+   #:show-panel                         ; FUNCTION
+   #:hide-panel                         ; FUNCTION
+   #:move-panel-to-top                  ; FUNCTION
+   #:move-panel-to-bottom               ; FUNCTION
+   #:move-panel                         ; FUNCTION
+   #:update-panels                      ; FUNCTION
    )
   )
