@@ -34,6 +34,7 @@
     (#.charms/ll:KEY_UP :up)
     (#.charms/ll:KEY_DOWN :down)
     (#.charms/ll:KEY_MOUSE :mouse)
+    (#.charms/ll:KEY_RESIZE :resize)
     (t (code-char c-char))))
 
 (defmacro check-status (form)
