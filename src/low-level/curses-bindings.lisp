@@ -288,6 +288,41 @@
 (define-exported-cfuns ("wstandend" "wstandout")
     :int)
 
+(define-exported-cfuns ("chgat")
+    :int
+  (n :int)
+  (attrs :int)
+  (color_pair_number :short)
+  (opt :pointer))
+
+(define-exported-cfuns ("wchgat")
+    :int
+  (win window-ptr)
+  (n :int)
+  (attrs :int)
+  (color_pair_number :short)
+  (opt :pointer))
+
+(define-exported-cfuns ("mvchgat")
+    :int
+  (y :int)
+  (x :int)
+  (n :int)
+  (attrs :int)
+  (color_pair_number :short)
+  (opt :pointer))
+
+(define-exported-cfuns ("mvwchgat")
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (n :int)
+  (attrs :int)
+  (color_pair_number :short)
+  (opt :pointer))
+
+
 ;; TODO:
 ;;
 ;; We need to define a attr_t structure type......
@@ -300,10 +335,6 @@
 ;; C Prototype: int wattr_on(WINDOW *win, attr_t attrs, void *opts);
 ;; C Prototype: int attr_set(attr_t attrs, short pair, void *opts);
 ;; C Prototype: int wattr_set(WINDOW *win, attr_t attrs, short pair, void *opts);
-;; C Prototype: int chgat(int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int wchgat(WINDOW *win, int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int mvchgat(int y, int x, int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int mvwchgat(WINDOW *win, int y, int x, int n, attr_t attr, short color, const void *opts)
 
 
 ;; beep
