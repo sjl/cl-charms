@@ -1823,7 +1823,11 @@ see printw for examples."
   (y :int)
   (x :int))
 
-; extern NCURSES_EXPORT(int)     replace_panel (PANEL *,WINDOW *);
+(define-exported-cfuns ("replace_panel")
+    :int
+  (panel panel-ptr)
+  (window window-ptr))
+
 ; extern NCURSES_EXPORT(int)     panel_hidden (const PANEL *);
 ; extern NCURSES_EXPORT(PANEL *) ground_panel(SCREEN *);
 ; extern NCURSES_EXPORT(PANEL *) ceiling_panel(SCREEN *);

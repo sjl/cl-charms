@@ -106,5 +106,7 @@
    #:move-panel-to-bottom               ; FUNCTION
    #:move-panel                         ; FUNCTION
    #:update-panels                      ; FUNCTION
+   #:replace-panel-window               ; FUNCTION
+
    )
   )
